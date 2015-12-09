@@ -31,4 +31,17 @@ RSpec.feature 'Signing user up' do
     expect(page).to have_content('Password can\'t be blank')
   end
 
+  scenario 'with invalid password confirmation' do
+    visit '/'
+    click_link 'Sign up'
+
+    fill_in 'Name', with: 'John Doe'
+    fill_in 'Email', with: 'john@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'mismatch_password'
+    click_button 'Sign up'
+
+    expect(page).to have_content('Password confirmation doesn\'t match Password')
+  end
+
 end
