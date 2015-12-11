@@ -53,5 +53,8 @@ group :development do
   gem 'spring'
 
   gem 'rails_layout'
+
+  # guard-rspec used for testing
+  gem 'guard-rspec', require: false
 end
 
