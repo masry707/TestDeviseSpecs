@@ -11,7 +11,7 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
           <%- if devise_mapping.recoverable? %>
-              <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
+              <%= link_to 'Forgot password?', new_password_path(resource_name), class: 'right' %>
           <% end -%>
         </div>
         <% if devise_mapping.rememberable? -%>
