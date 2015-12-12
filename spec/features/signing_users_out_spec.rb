@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Users signing out' do
 
   before do
-    @user = User.create!(name: 'user', email: 'user@example.com', password: 'password', confirmed_at: DateTime.now)
-    login_as @user
+    @confirmed_user = create :user, :confirmed_user
+    login_as @confirmed_user
   end
 
   scenario do
