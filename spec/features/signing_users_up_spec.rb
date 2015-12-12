@@ -49,4 +49,20 @@ RSpec.feature 'Signing user up' do
     expect(page).to have_content('Password confirmation doesn\'t match Password')
   end
 
+  scenario 'with password less than 8 characters' do
+    min_password = 8
+    short_password = 'p' * (min_password - 1)
+
+    visit '/'
+    click_link 'Sign up'
+
+    fill_in 'Name', with: @user.name
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: short_password
+    fill_in 'Password confirmation', with: short_password
+    click_button 'Sign up'
+
+    expect(page).to have_content('Password is too short (minimum is 8 characters)')
+  end
+
 end
