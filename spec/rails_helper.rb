@@ -28,7 +28,7 @@ Warden.test_mode!
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  # including FactoryGirl to my tests
+  # including FactoryGirl Methods to available to rspec.
   config.include FactoryGirl::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

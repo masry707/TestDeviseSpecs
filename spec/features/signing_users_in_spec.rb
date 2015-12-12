@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Users signing in' do
 
   before do
-    @unconfirmed_user = User.create!(name: 'user1', email: 'user_unc@example.com', password: 'password')
-    @confirmed_user = User.create!(name: 'user2', email: 'user_con@example.com', password: 'password', confirmed_at: DateTime.now)
+    @unconfirmed_user = create :user
+    @confirmed_user = create :user, :confirmed_user
   end
 
   scenario 'with valid credentials and confirmed user' do
