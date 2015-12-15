@@ -6,7 +6,11 @@ RSpec.feature 'confirming users' do
     @unconfirmed_user = build :user, :unconfirmed_user
   end
 
-  scenario do
+  after do
+    User.find_by_email(@unconfirmed_user.email).destroy!
+  end
+
+  scenario '', js: true do
     visit '/'
     click_link 'Sign up'
 
@@ -20,5 +24,6 @@ RSpec.feature 'confirming users' do
     current_email.click_link('Confirm my account')
 
     expect(page).to have_content('Your email address has been successfully confirmed.')
+    expect(page.current_path).to eq(new_user_session_path)
   end
 end
