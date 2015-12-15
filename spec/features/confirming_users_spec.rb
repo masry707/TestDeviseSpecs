@@ -6,10 +6,6 @@ RSpec.feature 'confirming users' do
     @unconfirmed_user = build :user, :unconfirmed_user
   end
 
-  after do
-    User.find_by_email(@unconfirmed_user.email).destroy!
-  end
-
   scenario '', js: true do
     visit '/'
     click_link 'Sign up'

@@ -50,6 +50,7 @@ gem 'capybara'
 gem 'capybara-email'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
+gem 'database_cleaner'
 end
 
 group :development do
